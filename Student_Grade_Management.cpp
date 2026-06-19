@@ -7,7 +7,25 @@ struct Student{
     string id;
     string name;
     int score;
+
+    bool operator>(const Student& other){
+        return this->score > other.score;
+    }
+
+    bool operator<(const Student& other){
+        return this->score < other.score;
+    }
 };
+
+template <class T>
+T getMax(T a, T b){
+    return (a > b) ? a : b;
+}
+
+template <class T>
+T getMin(T a, T b){
+    return (a < b) ? a : b;
+}
 
 //return a new object with passed variable
 Student makeStudent(string id, string name, int score){
@@ -24,6 +42,8 @@ void printInfo(const Student out){
 bool compareScore(const Student S1, const Student S2){
     return(S1.score>S2.score);
 }
+
+
 
 //main function
 int main(){
@@ -98,7 +118,13 @@ int main(){
 
 
     cout<<"\nFunction 5. Show statistics> "<<endl;
-    highest = (*max_element(stu.begin(), stu.end(), [](const Student& S1, const Student& S2){return S1.score<S2.score;})).score;
+    //highest = (*max_element(stu.begin(), stu.end(), [](const Student& S1, const Student& S2){return S1.score<S2.score;})).score;
+
+    highest = stu[0].score;
+    for(Find = stu.begin()+1; Find!=stu.end(); Find++){
+        highest = getMax(highest, (*Find).score);
+    }
+
     lowest = (*min_element(stu.begin(), stu.end(),  [](const Student& S1, const Student& S2){return S1.score<S2.score;})).score;
     for(Find = stu.begin(); Find!=stu.end(); Find++){
         average += (*Find).score;
