@@ -1,3 +1,3 @@
 # 114-2-STL-
 2026, 06, 22
-無拆分.cpp, .h檔。第二週小專題已包含在Student_Grade_Management內
+第二週小專題已包含在Student_Grade_Management內
