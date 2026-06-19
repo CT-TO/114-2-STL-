@@ -17,6 +17,7 @@ struct Student{
     }
 };
 
+//template, check function 5, find highest score
 template <class T>
 T getMax(T a, T b){
     return (a > b) ? a : b;
